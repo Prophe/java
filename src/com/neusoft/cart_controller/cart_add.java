@@ -41,6 +41,7 @@ public class cart_add extends HttpServlet {
 	}else{
 		 System.out.println("不是新的session"+session.getId());
 	}
+
 	//获得商品
 	int sid=Integer.parseInt(request.getParameter("PID"));
 	Product product = sbs.findProduct(sid);

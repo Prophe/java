@@ -67,16 +67,27 @@
 			        	  <%
 			        	 
 			        	  }} %>
-				
+		 <div style="width: 100%;height: 40px;border-left: 2px solid red;">
+			<span style="line-height: 40px;font-weight: bold;">支付方式</span>
+			<input type="radio" value="1" name="paystatus"/>线上支付&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" value="2" name="paystatus"/>货到付款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			
+		</div>
+			<div style="width: 100%;height: 40px;border-left: 2px solid red;">
+			<span style="line-height: 40px;font-weight: bold;">备注信息</span>
+			<input type="text" placeholder="点击编辑备注" name="mask"/>
+			</div>        	
+					
 				 
 					  
 	
 			<div class="cart_handler" style="border: 1px solid blue;" >
 				<div class="cart_handler_header">
-					<span class="cart_handler_left">共<span class="cart_price">1</span>件商品</span>
-					<span class="cart_handler_right">￥${shoppingBag.price }</span>
+					
 				</div>
-				<input type="submit"  value="结算" class="cart_go_btn" target="_blank">
+			
+				<input type="submit"  value="确认订单" class="cart_go_btn" target="_blank">
 					
 				</input>
 			</div>

@@ -23,6 +23,16 @@ public class Consumer_Addr implements Serializable {
 	private String city;		//ÊÐ
 	private String area;		//Çø
 	
+	public Consumer_Addr(int id, String name, String addr, String phone, String provice, String city, String area) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.addr = addr;
+		this.phone = phone;
+		this.provice = provice;
+		this.city = city;
+		this.area = area;
+	}
 	public int getId() {
 		return id;
 	}

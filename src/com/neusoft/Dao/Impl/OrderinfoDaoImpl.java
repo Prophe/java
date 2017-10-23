@@ -186,7 +186,7 @@ List<Orderinfo> list = null;
 	try {
 		conn = ConnectionFactory.getInstance().getConnection();
 		String sql = "insert into orderinfo(orderno,orderstatus,paystatus,ordertime,paytime,addrinfo,mask ) values(?,?,?,?,?,?,?)";
-		int count = qr.update(conn, sql,order.getOrderno(),order.getOrderstatus(),order.getPaystatus(),order.getAddrinfo(),order.getMask());
+		int count = qr.update(conn, sql,order.getOrderno(),order.getOrderstatus(),order.getPaystatus(),order.getOrdertime(),order.getPaytime(),order.getAddrinfo(),order.getMask());
 		if(count>0){
 			return true;
 		}

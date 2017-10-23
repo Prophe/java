@@ -20,6 +20,14 @@ public class Address implements Serializable {
 	private String city;	//ÊÐ
 	private String area;	//ÏØ Çø
 	
+	
+	public Address(int id, String province, String city, String area) {
+		super();
+		this.id = id;
+		this.province = province;
+		this.city = city;
+		this.area = area;
+	}
 	public int getId() {
 		return id;
 	}

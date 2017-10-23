@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.neusoft.Dao.DaoFactory;
+import com.neusoft.Dao.OrderinfoDao;
 import com.neusoft.cart_service.ShoppingBagService;
 import com.neusoft.entity.CartItem;
+import com.neusoft.entity.Orderinfo;
 import com.neusoft.entity.Product;
 
 /**
@@ -21,7 +24,7 @@ import com.neusoft.entity.Product;
 @WebServlet("/Acc_ord.do")
 public class Acc_orderaddress extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	OrderinfoDao order= DaoFactory.getInstance("order"); 
 	List<CartItem> list=new ArrayList<CartItem>();
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,7 +42,7 @@ public class Acc_orderaddress extends HttpServlet {
 		 ShoppingBagService sbs=new ShoppingBagService();
 		//int sid=Integer.parseInt(request.getParameter("PID"));
 		 //商品编号数组
-		
+		 
 		String[] pids=request.getParameterValues("pid");
 		
 		//商品数量数组
@@ -64,7 +67,31 @@ public class Acc_orderaddress extends HttpServlet {
     	  list.add(cart);
       }
       System.out.println(list.size());
+      
+      
+      
+      
       String orderno= UUID.randomUUID().toString().substring(0, 8);
+    //订单备注信息
+    String mask=request.getParameter("mask");
+    //订单支付状态
+    int paystatus=Integer.parseInt(request.getParameter("paystatus"));
+    //订单时间
+    Long ordertime=System.currentTimeMillis();
+    //orderno,orderstatus,paystatus,ordertime,paytime,addrinfo,mask
+    /**id=0, orderno=27509b6b, orderstatus=1, paystatus=1, ordertime=1508469393339, paytime=0, addrinfo=1, mask=dsd]
+     * (orderno,orderstatus,paystatus,ordertime,paytime,addrinfo,mask ) [27509b6b, 1, 1, 1, dsd]
+     * [0840ed16, 1, 1, 1, dsd]
+     * [id=0, orderno=0840ed16, orderstatus=1, paystatus=1, ordertime=1508469668343, paytime=1508469668343, addrinfo=1, mask=dsd]
+     * */
+ //   new Orderinfo(orderno, 1, paystatus, ordertime, ordertime,1, mask);
+  //  new Orderinfo(orderno, orderstatus, paystatus, ordertime, addrinfo, mask);
+    Orderinfo o= new Orderinfo(orderno, 1, paystatus, ordertime, ordertime,1, mask);
+    System.out.println(o);
+    if(order.addorder(o)){
+    System.out.println("订单添加成功");
+    }
+    
       //订单号cartitem
       request.setAttribute("orderno", orderno);
       //总商品数

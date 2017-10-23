@@ -37,6 +37,15 @@ public class Orderinfo {
 		this.addrinfo = addrinfo;
 		this.mask = mask;
 	}
+	public Orderinfo(String orderno, int orderstatus, int paystatus, long ordertime, int addrinfo, String mask) {
+		super();
+		this.orderno = orderno;
+		this.orderstatus = orderstatus;
+		this.paystatus = paystatus;
+		this.ordertime = ordertime;
+		this.addrinfo = addrinfo;
+		this.mask = mask;
+	}
 	@Override
 	public String toString() {
 		return "Orderinfo [id=" + id + ", orderno=" + orderno + ", orderstatus=" + orderstatus + ", paystatus="
